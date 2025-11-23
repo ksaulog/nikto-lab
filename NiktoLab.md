@@ -1,4 +1,4 @@
-# Nikto Lab for INFO 2311 Project
+# Nikto Lab for INFO 2411 Project
 ## Requirements to run lab
 
 1. Kali Linux VM (Nikto comes pre-installed with Kali)
