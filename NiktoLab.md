@@ -5,7 +5,7 @@
 2. Docker (Optional but recommended)
 3. Some vulnerable web server
 ## Lab Steps
-#### Step 1: Install Docker
+### Step 1: Install Docker
 
 We install Docker to make it easier to acquire and run some publicly available web applications. To install Docker, we will follow their [installation guide](https://docs.docker.com/engine/install/debian/) for installing Docker on Debian, which Kali Linux is based on. 
 
@@ -53,7 +53,7 @@ If it's not running, start Docker using:
 sudo systemctl start docker
 ```
 
-#### Step 2. Download a vulnerable web application
+### Step 2. Download a vulnerable web application
 
 To demonstrate Nikto, we need a target web application. Nikto is an active scanner so it's not advisable to use it on websites you don't have permissions to test on. Luckily, there are many vulnerable websites that are designed for teaching web security. The web app that we will be using for this lab is called [OWASP Mutillidae II](https://owasp.org/www-project-mutillidae-ii/) which it is built on a LAMP stack. 
 
@@ -78,9 +78,9 @@ Now the website is running on [127.0.0.1](127.0.0.1). Very simple compared to bu
 
 When you first access the website, the site will tell you that the database hasn't been initialized and will direct you to click on a link to initialize it. Once the database has been set up, now is a good time to scan the website using Nikto.
 
-![Running Website](img/nikto0)
+![Running Website](img/nikto0.png)
 
-#### Step 3: Running Nikto commands
+### Step 3: Running Nikto commands
 
 To get started with Nikto, let's see what options it has. Run:
 
@@ -108,7 +108,7 @@ The output of scan of the Nikto scan shows the potentially vulnerable configurat
 
 >**Question**: Name some interesting information from nikto's output. Some are more eye-catching than the others!
 
-![Default Host Scan Output](img/nikto1)
+![Default Host Scan Output](img/nikto1.png)
 
 The default behavior of Nikto is to scan port 80 (http) of the host, but we know from [Mutillidae's documentation](https://github.com/webpwnized/mutillidae-dockerhub) that there are other services running in different ports (typing `docker ps` shows the containers and their ports too). To scan other or even multiple ports, we can pass in  `-p <PORT|PORTS> ` to our command.
 
@@ -130,15 +130,15 @@ sed -n '/Port 80/,/Port/p' output.txt
 
 The `sed` command above basically says "Print all the lines starting from when you see Port 80, until you see the next Port". Let's check some of the routes from the Port 80 output. 
 
-![Sed Port 80 Output](img/nikto2)
+![Sed Port 80 Output](img/nikto2.png)
 
 If you spotted the /passwords route, that is a great route to check for security purposes. To access these routes, we need to send an http request to the route, along with its listed method. Any browser can do this or alternatively you can use the `curl` tool on the command line.
 
-![Passwords Directory](img/nikto3)
+![Passwords Directory](img/nikto3.png)
 
 Investigate the **accounts.txt** file further and you will see a list of accounts, even the admin account!
 
-![Accounts.txt file](img/nikto4)
+![Accounts.txt file](img/nikto4.png)
 
 Go back to the home page and go to the login section, and try to log in with the admin credentials. If you succeeded, you just found a vulnerability with Nikto!
 
