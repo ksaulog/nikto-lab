@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Nikto Lab for INFO 2411 Project
-=======
 # Nikto Lab for INFO 2311 Project
 
 ## Purpose and Intent
@@ -9,7 +6,6 @@ The purpose of this lab is to help students learn how to use Nikto and understan
  
 This lab must be done in a safe testing environment, and students should not scan any systems outside of their network. 
 
->>>>>>> 51b0c30 (Added purpose and intent, questions sections)
 ## Requirements to run lab
 
 1. Kali Linux VM (Nikto comes pre-installed with Kali)
