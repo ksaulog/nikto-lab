@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 # Nikto Lab for INFO 2411 Project
+=======
+# Nikto Lab for INFO 2311 Project
+
+## Purpose and Intent
+
+The purpose of this lab is to help students learn how to use Nikto and understand what it is capable of. Students will run scans on a test web server and observe how Nikto detects outdated software, misconfigured settings, and exposed files. The lab will focus on hands-on use of the tool so students can see how vulnerabilities are identified in a real environment. 
+ 
+This lab must be done in a safe testing environment, and students should not scan any systems outside of their network. 
+
+>>>>>>> 51b0c30 (Added purpose and intent, questions sections)
 ## Requirements to run lab
 
 1. Kali Linux VM (Nikto comes pre-installed with Kali)
@@ -149,6 +160,14 @@ If you're interested in checking other routes that are security risks, try looki
 >**Question**: What are the limitations of using Nikto?
 
 >**Question**: What tools can we use to improve our security assessment of a web server?
+
+## Questions (restated)
+
+1. Name the 3 options we used for the `nikto` command and what they do
+2. Give 3 potentially interesting output lines from `nikto`
+3. How would you describe the vulnerability we found by checking the /passwords route and what can a web developer do to fix?
+4. What are the limitations of using `nikto`
+5. What tools can we use to improve our security assessment of a web server
 
 ## References
 
